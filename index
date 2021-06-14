@@ -1,0 +1,27 @@
+<script>
+
+	let closeVideo = document.getElementsByClassName('closeVideo')[0];
+	let playButton = document.getElementById('modal-img-preview');
+	let url ;
+
+	playButton.addEventListener("click", function(){
+		document.getElementById("popup-video").setAttribute('src', 'https://www.loom.com/embed/41d5ab3c39734ea4b65930fc831535ee?autoplay=1');
+		url = document.getElementById("popup-video").getAttribute('src');
+	})
+	
+	closeVideo.addEventListener("click", function(){
+   		let classList = document.getElementById("videoModal").getAttribute('class')
+   		if(classList.includes('show')){
+   			document.getElementById("popup-video").setAttribute('src', url);
+		}else{
+			document.getElementById("popup-video").setAttribute('src', "");
+		}
+	})
+	
+	document.body.addEventListener('click', function() {
+		if(document.body.classList.contains('modal-open')){
+	    	document.getElementById("popup-video").setAttribute('src', "");
+		}
+	});
+
+</script>
